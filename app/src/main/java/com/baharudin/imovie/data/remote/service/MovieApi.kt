@@ -1,6 +1,7 @@
-package com.baharudin.imovie.data.remote
+package com.baharudin.imovie.data.remote.service
 
-import com.baharudin.imovie.data.MovieResponse
+import com.baharudin.imovie.data.remote.model.Movie
+import com.baharudin.imovie.data.remote.model.MovieResponse
 import com.baharudin.imovie.util.Constans.Companion.API_KEY
 import retrofit2.http.GET
 import retrofit2.http.Query
