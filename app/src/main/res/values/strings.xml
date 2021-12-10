@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">iMovie</string>
+    <string name="home">Home</string>
+    <string name="favorit">Favorit</string>
+    <string name="search">Search</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="see_all">See All</string>
+    <string name="retry">Retry</string>
 </resources>
