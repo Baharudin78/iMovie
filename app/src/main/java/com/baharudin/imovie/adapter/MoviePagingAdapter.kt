@@ -30,7 +30,7 @@ class MoviePagingAdapter(private val listener :OnClickItemListener ) : PagingDat
             fun bindItem(movie: Movie) {
                 binding.apply {
                     Glide.with(itemView)
-                        .load("${movie.baseUrl} ${movie.poster_path}")
+                        .load("${movie.baseUrl}${movie.poster_path}")
                         .centerCrop()
                         .transition(DrawableTransitionOptions.withCrossFade())
                         .error(R.drawable.ic_error)
@@ -52,7 +52,10 @@ class MoviePagingAdapter(private val listener :OnClickItemListener ) : PagingDat
     }
 
     override fun onBindViewHolder(holder: MovieViewHlder, position: Int) {
-
+        val currentItem = getItem(position)
+        if (currentItem != null) {
+            holder.bindItem(currentItem)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHlder {

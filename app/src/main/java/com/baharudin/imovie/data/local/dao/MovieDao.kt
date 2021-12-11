@@ -10,7 +10,7 @@ interface MovieDao {
     suspend fun insertFavorit(movieResponse: MovieLocal)
 
     @Query("SELECT * FROM movie_list")
-    suspend fun getAllFavorit() : Flow<List<MovieLocal>>
+    fun getAllFavorit() : Flow<List<MovieLocal>>
 
     @Delete
     suspend fun deleteFavorit(movieResponse: MovieLocal)
