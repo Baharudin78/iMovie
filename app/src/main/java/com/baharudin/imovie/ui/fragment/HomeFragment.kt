@@ -6,7 +6,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.paging.ExperimentalPagingApi
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.baharudin.imovie.R
@@ -29,8 +29,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), MoviePagingAdapter.OnClic
     private lateinit var moviePagingAdapter: MoviePagingAdapter
     private var nowPlayingJob: Job? = null
 
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         _binding = FragmentHomeBinding.bind(view)
         super.onViewCreated(view, savedInstanceState)
@@ -39,14 +37,10 @@ class HomeFragment : Fragment(R.layout.fragment_home), MoviePagingAdapter.OnClic
         setupRecycleview()
         startJob()
 
-        binding.btRetry.setOnClickListener {
-            moviePagingAdapter.refresh()
+        binding.icSeeall.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment1_to_seeAllFragment)
         }
-
-
-
     }
-
     private fun startJob() {
         nowPlayingJob?.cancel()
         nowPlayingJob = lifecycleScope.launch {
@@ -71,6 +65,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), MoviePagingAdapter.OnClic
                     binding.textView.isVisible = false
                 }else {
                     binding.progressBar.isVisible = false
+
                     val error = when {
                         loadState.mediator?.prepend is LoadState.Error ->
                             loadState.mediator?.prepend as LoadState.Error
@@ -96,6 +91,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), MoviePagingAdapter.OnClic
     }
 
     override fun onClickItem(movie: Movie) {
-
+        val action = HomeFragmentDirections.actionHomeFragment1ToDetailFragment(movie)
+        findNavController().navigate(action)
     }
 }

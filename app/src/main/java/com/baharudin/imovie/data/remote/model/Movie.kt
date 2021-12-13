@@ -10,7 +10,9 @@ data class Movie (
         val poster_path: String,
         val original_title: String,
         val release_date: String,
-        val video: Boolean
+        val video: Boolean,
+        val backdrop_path : String,
+        val vote_average : Float
         ) : Parcelable {
                 val baseUrl get() = "https://image.tmdb.org/t/p/w500"
         }

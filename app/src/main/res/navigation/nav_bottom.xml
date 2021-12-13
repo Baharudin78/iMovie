@@ -3,26 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_bottom"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/homeFragment1">
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/homeFragment1"
         android:name="com.baharudin.imovie.ui.fragment.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment1_to_seeAllFragment"
+            app:destination="@id/seeAllFragment" />
+        <action
+            android:id="@+id/action_homeFragment1_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.baharudin.imovie.ui.fragment.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="movie"
+            app:argType="com.baharudin.imovie.data.remote.model.Movie" />
+    </fragment>
     <fragment
-        android:id="@+id/favoritFragment"
+        android:id="@+id/favoritFragment1"
         android:name="com.baharudin.imovie.ui.fragment.FavoritFragment"
         android:label="fragment_favorit"
         tools:layout="@layout/fragment_favorit" />
     <fragment
-        android:id="@+id/searchFragment"
+        android:id="@+id/searchFragment1"
         android:name="com.baharudin.imovie.ui.fragment.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/seeAllFragment"
+        android:name="com.baharudin.imovie.ui.fragment.SeeAllFragment"
+        android:label="fragment_see_all"
+        tools:layout="@layout/fragment_see_all" />
 </navigation>

@@ -25,6 +25,7 @@ class MovieLoadStateAdapter(private val retry : () -> Unit)
             retryBtn.isVisible = false
         }else {
             progressBar.isVisible = false
+            retryBtn.isVisible = false
         }
         if (loadState is LoadState.Error) {
             errorMessage.isVisible = true
