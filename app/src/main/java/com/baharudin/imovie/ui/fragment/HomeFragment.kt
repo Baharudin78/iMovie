@@ -37,7 +37,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), MoviePagingAdapter.OnClic
         setupRecycleview()
         startJob()
 
-        binding.icSeeall.setOnClickListener {
+        binding.btSeeAll.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment1_to_seeAllFragment)
         }
     }

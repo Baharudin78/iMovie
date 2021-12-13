@@ -40,5 +40,9 @@
         android:id="@+id/seeAllFragment"
         android:name="com.baharudin.imovie.ui.fragment.SeeAllFragment"
         android:label="fragment_see_all"
-        tools:layout="@layout/fragment_see_all" />
+        tools:layout="@layout/fragment_see_all" >
+        <action
+            android:id="@+id/action_seeAllFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
 </navigation>
